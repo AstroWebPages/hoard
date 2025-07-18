@@ -9,7 +9,7 @@
 
         <link rel="icon" href="../images/ico.png">
 
-        <title>Hoard - Trabajo</title>
+        <title>Hoard - Publicarme</title>
 
         <!-- CSS FILES -->        
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,9 +38,9 @@
 
 
                     <div class="d-lg-none ms-auto me-3">
-                        <a href="/undertake/" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
+                        <a href="/job/" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
                             <i class="btn-icon bi-cloud"></i>
-                            <span>Registrarme</span><!-- duplicated another one below for mobile -->
+                            <span>Trabajo</span><!-- duplicated another one below for mobile -->
                         </a>
                     </div>
     
@@ -51,7 +51,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-lg-auto me-lg-4">
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="/job/">Trabajo</a>
+                                <a class="nav-link click-scroll" href="/undertake/">Registro</a>
                             </li>
 
                             <li class="nav-item">
@@ -77,9 +77,9 @@
                         </ul>
 
                         <div class="d-none d-lg-block">
-                            <a href="/undertake/" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
+                            <a href="/job/" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
                                 <i class="btn-icon bi-cloud"></i>
-                                <span>Registrarme</span><!-- duplicated above one for mobile -->
+                                <span>Trabajo</span><!-- duplicated above one for mobile -->
                             </a>
                         </div>
                     </div>
@@ -92,82 +92,106 @@
                     <div class="row">
 
                         <div class="col-lg-5 col-12 mx-auto">
-                            <form id="customForm" class="custom-form ebook-download-form bg-white shadow" action="https://formspree.io/f/xanyzqej" method="POST" role="form">
+                           <form id="customForm" class="custom-form ebook-download-form bg-white shadow" action="https://formspree.io/f/xanyzqej" method="POST" role="form" enctype="multipart/form-data">
                                 <div class="text-center mb-5">
-                                    <h2 class="mb-1">Trabaja para nosotros</h2>
+                                    <h2 class="mb-1">Regístrate como Empresa</h2>
                                 </div>
 
                                 <div class="ebook-download-form-body">
-                                    <!-- Consulta -->
+
+                                    <!-- Nombre -->
                                     <div class="input-group mb-4">
-                                    <input type="text" name="consulta" id="ebook-form-name" class="form-control" aria-label="ebook-form-name" aria-describedby="basic-addon1" placeholder="Nombre" required>
-                                    <span class="input-group-text" id="basic-addon1">
+                                    <input type="text" name="nombre" class="form-control" placeholder="Nombre de la empresa" required>
+                                    <span class="input-group-text">
                                         <i class="custom-form-icon bi-person"></i>
                                     </span>
                                     </div>
 
-                                    <!-- Email -->
+                                    <!-- Email (opcional) -->
                                     <div class="input-group mb-4">
-                                    <input type="email" name="email" id="ebook-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="tu@email.com" aria-label="ebook-form-email" aria-describedby="basic-addon2" required>
-                                    <span class="input-group-text" id="basic-addon2">
+                                    <input type="email" name="email" class="form-control" placeholder="tu@email.com (opcional)">
+                                    <span class="input-group-text">
                                         <i class="custom-form-icon bi-envelope"></i>
                                     </span>
                                     </div>
 
-                                    <!-- País -->
+                                    <!-- Número de contacto -->
                                     <div class="input-group mb-4">
-                                    <select name="pais" class="form-control"  id="pais" class="form-select" required>
-                                        <option value="" disabled selected>Selecciona tu país</option>
-                                        <option value="El Salvador">El Savador</option>
-                                        <option value="Honduras">Honduras</option>
-                                        <option value="Guatemala">Guatemala</option>
-                                        <option value="Nicaragua">Nicaragua</option>
-                                        <option value="Costa Rica">Costa Rica</option>
-                                        <option value="Panamá">Panamá</option>
-                                        <option value="Otro">Otro</option>
-                                    </select>
-                                    </div>
-
-                                    <!-- Marketplace -->
-                                    <div class="input-group mb-4">
-                                    <select name="marketplace" class="form-control"  id="marketplace" class="form-select" required>
-                                        <option value="" disabled selected>Selecciona el marketplace</option>
-                                        <option value="Facebook Marketplace">Facebook Marketplace</option>
-                                        <option value="Mercado Libre">Mercado Libre</option>
-                                        <option value="Otro">Otro</option>
-                                        
-                                    </select>
-                                    </div>
-
-                                    <!-- Otro Marketplace (mismo estilo input-group) -->
-                                    <div class="input-group mb-4" id="otroMarketplaceGroup" style="display: none;">
-                                    <input type="text" name="otro_marketplace" id="otro-marketplace" class="form-control" placeholder="Ingresa otro marketplace">
+                                    <input type="tel" name="telefono" class="form-control" placeholder="Número de contacto" required>
                                     <span class="input-group-text">
-                                        <i class="custom-form-icon bi-shop"></i>
+                                        <i class="custom-form-icon bi-telephone"></i>
+                                    </span>
+                                    </div>
+
+                                    <!-- Página web (opcional) -->
+                                    <div class="input-group mb-4">
+                                    <input type="url" name="paginaweb" class="form-control" placeholder="Página web (opcional)">
+                                    <span class="input-group-text">
+                                        <i class="custom-form-icon bi-globe"></i>
+                                    </span>
+                                    </div>
+
+                                    <!-- Producto -->
+                                    <div class="input-group mb-4">
+                                    <input type="text" name="producto" class="form-control" placeholder="Producto" required>
+                                    <span class="input-group-text">
+                                        <i class="custom-form-icon bi-box"></i>
+                                    </span>
+                                    </div>
+
+                                    <!-- Publicidad -->
+                                    <div class="input-group mb-4">
+                                    <select name="publicidad" id="publicidad" class="form-control" required>
+                                        <option value="" disabled selected>Selecciona nivel de publicidad</option>
+                                        <option value="local">Local-Capital (10% comisión)</option>
+                                        <option value="nacional">Nacional (15% comisión)</option>
+                                        <option value="mundial">Mundial (20% comisión)</option>
+                                    </select>
+                                    </div>
+
+                                    <!-- Precio -->
+                                    <div class="input-group mb-4">
+                                    <input type="number" name="precio_base" id="precio_base" class="form-control" placeholder="Precio base del producto" min="0" required>
+                                    <span class="input-group-text">
+                                        <i class="custom-form-icon bi-cash"></i>
+                                    </span>
+                                    </div>
+
+                                    <!-- Precio con comisión (dinámico) -->
+                                    <div class="input-group mb-4">
+                                    <input type="text" name="precio_total" id="precio_total" class="form-control" placeholder="Precio final con comisión" readonly>
+                                    <span class="input-group-text">
+                                        <i class="custom-form-icon bi-calculator"></i>
                                     </span>
                                     </div>
 
                                     <!-- Botón -->
                                     <div class="col-lg-8 col-md-10 col-8 mx-auto">
-                                    <button type="submit" class="form-control">Enviar Solicitud</button>
+                                    <button type="submit" class="form-control">Registrarse</button>
                                     </div>
                                 </div>
                                 </form>
 
                                 <script>
                                 const form = document.getElementById('customForm');
-                                const marketplaceSelect = document.getElementById('marketplace');
-                                const otroMarketplaceGroup = document.getElementById('otroMarketplaceGroup');
+                                const publicidad = document.getElementById('publicidad');
+                                const precioBase = document.getElementById('precio_base');
+                                const precioTotal = document.getElementById('precio_total');
 
-                                marketplaceSelect.addEventListener('change', function () {
-                                    if (this.value === 'Otro') {
-                                    otroMarketplaceGroup.style.display = 'flex'; // Para que se vea igual al input-group
-                                    document.getElementById('otro-marketplace').setAttribute('required', 'required');
-                                    } else {
-                                    otroMarketplaceGroup.style.display = 'none';
-                                    document.getElementById('otro-marketplace').removeAttribute('required');
-                                    }
-                                });
+                                function calcularComision() {
+                                const base = parseFloat(precioBase.value) || 0;
+                                let porcentaje = 0;
+                                if (publicidad.value === 'local') porcentaje = 0.10;
+                                else if (publicidad.value === 'nacional') porcentaje = 0.15;
+                                else if (publicidad.value === 'mundial') porcentaje = 0.20;
+
+                                const total = base - (base * porcentaje); // RESTA la comisión
+                                precioTotal.value = total.toFixed(2);
+                                }
+
+
+                                publicidad.addEventListener('change', calcularComision);
+                                precioBase.addEventListener('input', calcularComision);
 
                                 form.addEventListener('submit', async function (event) {
                                     event.preventDefault();
@@ -184,17 +208,18 @@
                                     });
 
                                     if (response.ok) {
-                                        alert('¡Tu consulta ha sido enviada correctamente!');
+                                        alert('¡Registro enviado correctamente!');
                                         form.reset();
-                                        otroMarketplaceGroup.style.display = 'none';
+                                        precioTotal.value = '';
                                     } else {
-                                        alert('Hubo un problema al enviar tu consulta. Intenta de nuevo.');
+                                        alert('Hubo un problema al enviar tu registro. Intenta de nuevo.');
                                     }
                                     } catch (error) {
                                     alert('Error de conexión. Por favor, intenta más tarde.');
                                     }
                                 });
                                 </script>
+
 
 
 
