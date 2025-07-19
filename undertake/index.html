@@ -79,7 +79,7 @@
                         <div class="d-none d-lg-block">
                             <a href="/job/" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
                                 <i class="btn-icon bi-cloud"></i>
-                                <span style="color: white;">Registrarme</span><!-- duplicated above one for mobile -->
+                                <span style="color: white;">Trabajo</span><!-- duplicated above one for mobile -->
                             </a>
                         </div>
                     </div>
@@ -121,14 +121,6 @@
                                     </span>
                                     </div>
 
-                                    <!-- Email (opcional) -->
-                                    <div class="input-group mb-4">
-                                    <input type="email" name="email" class="form-control" placeholder="tu@email.com (opcional)">
-                                    <span class="input-group-text">
-                                        <i class="custom-form-icon bi-envelope"></i>
-                                    </span>
-                                    </div>
-
                                     <!-- Número de contacto -->
                                     <div class="input-group mb-4">
                                     <input type="tel" name="telefono" class="form-control" placeholder="Número de contacto" required>
@@ -137,17 +129,9 @@
                                     </span>
                                     </div>
 
-                                    <!-- Página web (opcional) -->
-                                    <div class="input-group mb-4">
-                                    <input type="url" name="paginaweb" class="form-control" placeholder="Página web (opcional)">
-                                    <span class="input-group-text">
-                                        <i class="custom-form-icon bi-globe"></i>
-                                    </span>
-                                    </div>
-
                                     <!-- Producto -->
                                     <div class="input-group mb-4">
-                                    <input type="text" name="producto" class="form-control" placeholder="Producto" required>
+                                    <input type="text" name="producto" class="form-control" placeholder="Producto / Servicio" required>
                                     <span class="input-group-text">
                                         <i class="custom-form-icon bi-box"></i>
                                     </span>
@@ -156,7 +140,7 @@
                                     <!-- Tipo producto -->
                                     <div class="input-group mb-4">
                                     <select name="servicio" class="form-control"  id="servicio" class="form-select" required>
-                                        <option value="" disabled selected>Tipo de Servicio</option>
+                                        <option value="" disabled selected>Tipo de Producto / Servicio</option>
                                         <option value="Digital">Digital </option>
                                         <option value="Físico">Físico</option>
                                     </select>
@@ -172,7 +156,7 @@
                                     </select>
                                     </div>
 
-                                    <!-- Precio -->
+                                    <!-- Precio base -->
                                     <div class="input-group mb-4">
                                     <input type="number" name="precio_base" id="precio_base" class="form-control" placeholder="Precio base del producto" min="0" required>
                                     <span class="input-group-text">
@@ -180,11 +164,19 @@
                                     </span>
                                     </div>
 
-                                    <!-- Precio con comisión (dinámico) -->
-                                    <div class="input-group mb-4">
-                                    <input type="text" name="precio_total" id="precio_total" class="form-control" placeholder="Precio final con comisión" readonly>
+                                    <!-- Tú recibes -->
+                                    <div class="input-group mb-2">
+                                    <span class="form-control bg-light">Tú recibes: <span id="tu_recibes">0.00</span></span>
                                     <span class="input-group-text">
-                                        <i class="custom-form-icon bi-calculator"></i>
+                                        <i class="custom-form-icon bi-wallet"></i>
+                                    </span>
+                                    </div>
+
+                                    <!-- Nuestra comisión -->
+                                    <div class="input-group mb-4">
+                                    <span class="form-control bg-light">Nuestra comisión: <span id="nuestra_comision">0.00</span></span>
+                                    <span class="input-group-text">
+                                        <i class="custom-form-icon bi-percent"></i>
                                     </span>
                                     </div>
 
@@ -192,56 +184,62 @@
                                     <div class="col-lg-8 col-md-10 col-8 mx-auto">
                                     <button type="submit" class="form-control">Registrarse</button>
                                     </div>
-                                </div>
-                                </form>
+                                    </div>
+                                    </form>
 
-                                <script>
-                                const form = document.getElementById('customForm');
-                                const publicidad = document.getElementById('publicidad');
-                                const precioBase = document.getElementById('precio_base');
-                                const precioTotal = document.getElementById('precio_total');
+                                    <script>
+                                    const form = document.getElementById('customForm');
+                                    const publicidad = document.getElementById('publicidad');
+                                    const precioBase = document.getElementById('precio_base');
+                                    const tuRecibes = document.getElementById('tu_recibes');
+                                    const nuestraComision = document.getElementById('nuestra_comision');
 
-                                function calcularComision() {
-                                const base = parseFloat(precioBase.value) || 0;
-                                let porcentaje = 0;
-                                if (publicidad.value === 'local') porcentaje = 0.10;
-                                else if (publicidad.value === 'nacional') porcentaje = 0.15;
-                                else if (publicidad.value === 'mundial') porcentaje = 0.20;
+                                    function calcularComision() {
+                                        const base = parseFloat(precioBase.value) || 0;
+                                        let porcentaje = 0;
 
-                                const total = base - (base * porcentaje); // RESTA la comisión
-                                precioTotal.value = total.toFixed(2);
-                                }
+                                        if (publicidad.value === 'local') porcentaje = 0.10;
+                                        else if (publicidad.value === 'nacional') porcentaje = 0.15;
+                                        else if (publicidad.value === 'mundial') porcentaje = 0.20;
 
+                                        const comision = base * porcentaje;
+                                        const recibe = base - comision;
 
-                                publicidad.addEventListener('change', calcularComision);
-                                precioBase.addEventListener('input', calcularComision);
+                                        tuRecibes.textContent = recibe.toFixed(2);
+                                        nuestraComision.textContent = comision.toFixed(2);
+                                    }
 
-                                form.addEventListener('submit', async function (event) {
-                                    event.preventDefault();
+                                    publicidad.addEventListener('change', calcularComision);
+                                    precioBase.addEventListener('input', calcularComision);
 
-                                    const formData = new FormData(form);
+                                    form.addEventListener('submit', async function (event) {
+                                        event.preventDefault();
 
-                                    try {
-                                    const response = await fetch(form.action, {
-                                        method: 'POST',
-                                        body: formData,
-                                        headers: {
-                                        'Accept': 'application/json'
+                                        const formData = new FormData(form);
+
+                                        try {
+                                        const response = await fetch(form.action, {
+                                            method: 'POST',
+                                            body: formData,
+                                            headers: {
+                                            'Accept': 'application/json'
+                                            }
+                                        });
+
+                                        if (response.ok) {
+                                            alert('¡Registro enviado correctamente!');
+                                            form.reset();
+                                            tuRecibes.textContent = '0.00';
+                                            nuestraComision.textContent = '0.00';
+                                        } else {
+                                            alert('Hubo un problema al enviar tu registro. Intenta de nuevo.');
+                                        }
+                                        } catch (error) {
+                                        alert('Error de conexión. Por favor, intenta más tarde.');
                                         }
                                     });
+                                    </script>
 
-                                    if (response.ok) {
-                                        alert('¡Registro enviado correctamente!');
-                                        form.reset();
-                                        precioTotal.value = '';
-                                    } else {
-                                        alert('Hubo un problema al enviar tu registro. Intenta de nuevo.');
-                                    }
-                                    } catch (error) {
-                                    alert('Error de conexión. Por favor, intenta más tarde.');
-                                    }
-                                });
-                                </script>
 
 
 
