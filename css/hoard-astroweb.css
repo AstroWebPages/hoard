@@ -421,6 +421,7 @@ strong {
   z-index: 99;
   padding-top: 15px;
   padding-bottom: 15px;
+  margin-bottom: 300px;
 }
 
 .navbar-brand,
@@ -1064,4 +1065,21 @@ strong {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
+}
+
+
+/* Ajusta separación del navbar */
+#section_5 {
+  padding-top: 100px; /* Ajusta según la altura real de tu navbar */
+}
+
+/* Logo responsive */
+.navbar-brand img.banner-wh {
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img.banner-wh {
+    width: 140px; /* más pequeño en móvil */
+  }
 }

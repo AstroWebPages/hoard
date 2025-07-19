@@ -29,10 +29,10 @@
 
         <main>
 
-            <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="../">
-      <img class="banner-wh" src="/images/banner.svg" width="200" alt="">
-    </a>
+                                <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="../">
+                        <img class="banner-wh" src="/images/banner.svg" width="200" alt="">
+                        </a>
 
 
 
@@ -79,7 +79,7 @@
                         <div class="d-none d-lg-block">
                             <a href="/job/" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
                                 <i class="btn-icon bi-cloud"></i>
-                                <span>Trabajo</span><!-- duplicated above one for mobile -->
+                                <span style="color: white;">Registrarme</span><!-- duplicated above one for mobile -->
                             </a>
                         </div>
                     </div>
@@ -98,6 +98,20 @@
                                 </div>
 
                                 <div class="ebook-download-form-body">
+
+                                    <!-- País -->
+                                    <div class="input-group mb-4">
+                                    <select name="pais" class="form-control"  id="pais" class="form-select" required>
+                                        <option value="" disabled selected>Selecciona tu país</option>
+                                        <option value="El Salvador">El Savador</option>
+                                        <option value="Honduras">Honduras</option>
+                                        <option value="Guatemala">Guatemala</option>
+                                        <option value="Nicaragua">Nicaragua</option>
+                                        <option value="Costa Rica">Costa Rica</option>
+                                        <option value="Panamá">Panamá</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    </div>
 
                                     <!-- Nombre -->
                                     <div class="input-group mb-4">
@@ -137,6 +151,15 @@
                                     <span class="input-group-text">
                                         <i class="custom-form-icon bi-box"></i>
                                     </span>
+                                    </div>
+
+                                    <!-- Tipo producto -->
+                                    <div class="input-group mb-4">
+                                    <select name="servicio" class="form-control"  id="servicio" class="form-select" required>
+                                        <option value="" disabled selected>Tipo de Servicio</option>
+                                        <option value="Digital">Digital </option>
+                                        <option value="Físico">Físico</option>
+                                    </select>
                                     </div>
 
                                     <!-- Publicidad -->
